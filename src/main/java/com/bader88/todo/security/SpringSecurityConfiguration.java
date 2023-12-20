@@ -25,7 +25,7 @@ public class SpringSecurityConfiguration {
     @Bean
     public InMemoryUserDetailsManager createUserDetailsManager() {
 
-        UserDetails userDetails1 = createNewUser("bader", "x");
+        UserDetails userDetails1 = createNewUser("root", "0000");
         UserDetails userDetails2 = createNewUser("x", "x");
 
         return new InMemoryUserDetailsManager(userDetails1, userDetails2);
@@ -57,8 +57,25 @@ public class SpringSecurityConfiguration {
 
         http.csrf().disable();
         http.headers().frameOptions().disable();
+//        ########################################
+//        http.authorizeHttpRequests(
+//				auth -> auth.anyRequest().authenticated()
+//				);
+//		2) If a request is not authenticated, a web page is shown
+		http.httpBasic(withDefaults());
+		
+//		3) CSRF -> POST, PUT
+		// http.csrf().disable(); // Deprecated in SB 3.1.x
+        http.csrf(csrf -> csrf.disable()); // Starting from SB 3.1.x Using Lambda DSL
+        // OR
+        // http.csrf(AbstractHttpConfigurer::disable); // Starting from SB 3.1.x Using Method Reference
+//        -----------------------
+// Add this line to enable CORS configuration
+        http.cors(withDefaults());
+        
 
         return http.build();
     }
+    
 
 }
