@@ -2,6 +2,8 @@ package com.bader88.todo.controller;
 
 import java.util.List;
 
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,6 +26,20 @@ public class RestApiTodoController {
 	public List<TodoEntity> getTodosByUsername(@PathVariable String username) {
 //		return toDoService.findByUsername(username);
 		return toDoRepo.findByUsername(username);
+	}
+	
+	@GetMapping("/users/{username}/todos/{id}")
+	public TodoEntity getTodoByUsernameAndId(@PathVariable String username,@PathVariable int id) {
+//		return toDoRepo.findById(id);
+		return toDoRepo.findByUsernameAndId(username, id);
+	}
+	
+	@DeleteMapping("/users/{username}/todos/{id}")
+	public ResponseEntity<Void> deleteTodoByUsernameAndId(@PathVariable String username,@PathVariable int id){
+		toDoRepo.deleteById(id);
+//		toDoRepo.removeByUsernameAndId(username, id);
+		
+		return ResponseEntity.noContent().build();
 	}
 	
 }
