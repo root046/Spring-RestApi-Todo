@@ -1,50 +1,49 @@
-Todo
-- Future: Lombok
-- Future: My favorite Eclipse shortcuts ctrl 1, ctrl space and ctrl shift o (ctrl c and ctrl v), ctrl shift r and ctrl shift t, ctrl click to see the source! Practice, Practice and Practice
-- Future: Which Java Version to Use?
-- Future: Spring Boot Feature Lectures
-- Future: Understand Spring Boot Project Structure!
-- Future: Spring Annotations - Component, Controller, Repository, Service, Configuration, Bean
-- Future: Topical Videos (HTML, JS, CSS, JSTL, Spring Tags)
-Step Wise Details
-- Creating Spring Boot Web Application with Spring Initializr
-- Quick overview of Spring Boot Project
-- First Spring MVC Controller, @ResponseBody, @Controller
-- Enhancing Spring MVC Controller to provide HTML response
-- Redirect to a JSP using Spring Boot - Controller, @ResponseBody and View Resolver
-- Exercise - Creating LoginController and login view
-- Quick Overview - How does web work - Request and Response
-- Capturing QueryParams using RequestParam and First Look at Model
-- Quick Overview - Importance of Logging with Spring Boot
-- Understanding DispatcherServlet, Model 1, Model 2 and Front Controller
-- Creating a Login Form
-- Displaying Login Credentials in a JSP using Model
-- Add hard-coded validation of userid and password
-- Getting started with Todo Features - Creating Todo and TodoService
-- Creating first version of List Todos Page
-- Understanding Session vs Model vs Request - @SessionAttributes
-- Adding JSTL to Spring Boot Project and Showing Todos in a Table
-- Adding Bootstrap CSS framework to Spring Boot Project using webjars
-- Formatting JSP pages with Bootstrap CSS framework
-- Lets Add a New Todo - Create a new View
-- Enhancing TodoService to add the todo
-- Adding Validations using Spring Boot Starter Validation
-- Using Command Beans to implement New Todo Page Validations
-- Implementing Delete Todo Feature - New View
-- Implementing Update Todo - 1 - Show Update Todo Page
-- Implementing Update Todo - 1 - Save changes to Todo
-- Adding Target Date Field to Todo Page
-- Adding a Navigation Bar and Implementing JSP Fragments
-- Preparing for Spring Security
-- Setting up Spring Security with Spring Boot Starter Security
-- Configuring Spring Security with Custom User and Password Encoder
-- Refactoring and Removing Hardcoding of User Id
-- Setting up a New User for Todo Application
-- Adding Spring Boot Starter Data JPA and Getting H2 database ready
-- Configuring Spring Security to Get H2-console Working
-- Making Todo an Entity and Population Todo Data into H2
-- Creating TodoRepository and Connecting List Todos page from H2 database
-- Connecting All Todo App Features to H2 Database
-- OPTIONAL - Overview of Connecting Todo App to MySQL database
-- OPTIONAL - Installing Docker
-- OPTIONAL - Connecting Todo App to MySQL database
+# Todo List
+
+## Future Topics
+- **Lombok**
+- **Favorite Eclipse Shortcuts:**
+  - Ctrl + 1
+  - Ctrl + Space
+  - Ctrl + Shift + O
+  - Ctrl + C and Ctrl + V
+  - Ctrl + Shift + R and Ctrl + Shift + T
+  - Ctrl + Click to see the source
+  - *Practice, practice, and practice!*
+- **Which Java Version to Use?**
+- **Spring Boot Feature Lectures**
+- **Understand Spring Boot Project Structure!**
+- **Spring Annotations:**
+  - Component
+  - Controller
+  - Repository
+  - Service
+  - Configuration
+  - Bean
+- **Topical Videos:**
+  - HTML
+  - JS
+  - CSS
+  - JSTL
+  - Spring Tags
+
+## Step Wise Details
+1. **Creating Spring Boot Web Application with Spring Initializr**
+2. **Quick Overview of Spring Boot Project**
+3. **First Spring MVC Controller:**
+   - @ResponseBody
+   - @Controller
+4. **Enhancing Spring MVC Controller to Provide HTML Response**
+5. **Redirect to a JSP using Spring Boot:**
+   - Controller
+   - @ResponseBody
+   - View Resolver
+6. **Exercise: Creating LoginController and Login View**
+7. **Quick Overview: How Does Web Work?**
+   - Request and Response
+8. **Capturing QueryParams using RequestParam and First Look at Model**
+9. **Quick Overview: Importance of Logging with Spring Boot**
+10. **Understanding DispatcherServlet, Model 1, Model 2, and Front Controller**
+11. **Creating a Login Form**
+12. **Displaying Login Credentials in a JSP using Model**
+13. **Add Hard-coded Validation of UserID and Passwo
