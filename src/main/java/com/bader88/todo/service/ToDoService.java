@@ -14,13 +14,13 @@ public class ToDoService {
     private static List<TodoEntity> todoEntityList=new ArrayList<>();
     private static int idCounter=0;
     static {
-        todoEntityList.add(new TodoEntity(++ idCounter,"bader","SpringBoot",
+        todoEntityList.add(new TodoEntity(++ idCounter,"root","SpringBoot",
                 LocalDate.now().plusYears(1),false));
 
-        todoEntityList.add(new TodoEntity(++ idCounter,"bader","DotNet",
+        todoEntityList.add(new TodoEntity(++ idCounter,"root","DotNet",
                 LocalDate.now().plusYears(2),false));
 
-        todoEntityList.add(new TodoEntity(++ idCounter,"bader","Outsystems",
+        todoEntityList.add(new TodoEntity(++ idCounter,"root","Outsystems",
                 LocalDate.now().plusYears(3),false));
     }
 
@@ -29,9 +29,10 @@ public class ToDoService {
                 todo -> todo.getUsername().equalsIgnoreCase(username);
         return todoEntityList.stream().filter(predicate).toList();
     }
-    public void addToDo(String username,String description,LocalDate targetDate,boolean isDone){
+    public TodoEntity addToDo(String username,String description,LocalDate targetDate,boolean isDone){
         TodoEntity todoEntity = new TodoEntity(++ idCounter,username,description,targetDate,isDone);
         todoEntityList.add(todoEntity);
+        return todoEntity;
     }
     public void deleteById(int id) {
         //todo.getId() == id
