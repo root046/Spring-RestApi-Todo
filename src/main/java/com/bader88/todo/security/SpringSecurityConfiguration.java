@@ -5,6 +5,7 @@ import java.util.function.Function;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -61,8 +62,15 @@ public class SpringSecurityConfiguration {
 //        http.authorizeHttpRequests(
 //				auth -> auth.anyRequest().authenticated()
 //				);
-//		2) If a request is not authenticated, a web page is shown
+//		2) If a request is not authenticated, a popup is shown ask to login
 		http.httpBasic(withDefaults());
+		
+//		mangement session
+		http.sessionManagement(
+				session -> session.sessionCreationPolicy(
+						SessionCreationPolicy.STATELESS
+						)
+				);
 		
 //		3) CSRF -> POST, PUT
 		// http.csrf().disable(); // Deprecated in SB 3.1.x
