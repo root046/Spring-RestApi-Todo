@@ -23,6 +23,11 @@ public class RestApiTodoController {
 
 	private final ToDoService toDoService;
 	private final ToDoRepo toDoRepo;
+	
+	@GetMapping("/basicauth")
+	public String basicAuthCheck() {
+		return "Success";
+	}
 
 	@GetMapping("/users/{username}/todos")
 	public List<TodoEntity> getTodosByUsername(@PathVariable String username) {
