@@ -9,7 +9,8 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
-@Configuration
+// disable this config and move to JWT config
+//@Configuration
 public class SpringSecurityConfiguration {
 	@Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
