@@ -21,7 +21,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class RestApiTodoController {
 
-	private final ToDoService toDoService;
+//	private final ToDoService toDoService;
 	private final ToDoRepo toDoRepo;
 	
 	@GetMapping("/basicauth")
@@ -31,23 +31,23 @@ public class RestApiTodoController {
 
 	@GetMapping("/users/{username}/todos")
 	public List<TodoEntity> getTodosByUsername(@PathVariable String username) {
-		return toDoService.findByUsername(username);
-//		return toDoRepo.findByUsername(username);
+//		return toDoService.findByUsername(username);
+		return toDoRepo.findByUsername(username);
 	}
 
 	@GetMapping("/users/{username}/todos/{id}")
 	public TodoEntity getTodoByUsernameAndId(@PathVariable String username, @PathVariable int id) {
-		return toDoService.findById(id);
+//		return toDoService.findById(id);
 
-//		return toDoRepo.findById(id);
+		return toDoRepo.findById(id).get();
 //		return toDoRepo.findByUsernameAndId(username, id);
 	}
 
 	@DeleteMapping("/users/{username}/todos/{id}")
 	public ResponseEntity<Void> deleteTodoByUsernameAndId(@PathVariable String username, @PathVariable int id) {
-		toDoService.deleteById(id);
+//		toDoService.deleteById(id);
 
-//		toDoRepo.deleteById(id);
+		toDoRepo.deleteById(id);
 //		toDoRepo.removeByUsernameAndId(username, id);
 
 		return ResponseEntity.noContent().build();
@@ -57,16 +57,22 @@ public class RestApiTodoController {
 	public TodoEntity updateTodoByUsernameAndId(@PathVariable String username, @PathVariable int id,
 			@RequestBody TodoEntity todoEntity) {
 
-		toDoService.updateTodo(todoEntity);
+//		toDoService.updateTodo(todoEntity);
+		toDoRepo.save(todoEntity);
 		return todoEntity;
 	}
 	
 	@PostMapping("/users/{username}/todos")
 	public TodoEntity createTodoByUsernameAndId(@PathVariable String username,@RequestBody TodoEntity todoEntity) {
-
-		TodoEntity createdToDo = toDoService.addToDo(username, todoEntity.getDescription(), todoEntity.getTargetDate(), todoEntity.getIsDone());
 		
-		return createdToDo;
+		todoEntity.setUsername(username);
+		todoEntity.setId(null);
+		
+		return toDoRepo.save(todoEntity);
+
+//		TodoEntity createdToDo = toDoService.addToDo(username, todoEntity.getDescription(), todoEntity.getTargetDate(), todoEntity.getIsDone());
+//		
+//		return createdToDo;
 	}
 
 }
