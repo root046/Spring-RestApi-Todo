@@ -38,6 +38,8 @@ import com.nimbusds.jose.jwk.RSAKey;
 import com.nimbusds.jose.jwk.source.JWKSource;
 import com.nimbusds.jose.proc.SecurityContext;
 
+import static org.springframework.security.config.Customizer.withDefaults;
+
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity
@@ -60,12 +62,11 @@ public class JwtSecurityConfig {
                     )
                 .sessionManagement(session -> session.
                     sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .oauth2ResourceServer(
-                        OAuth2ResourceServerConfigurer::jwt)
+                .oauth2ResourceServer((oauth2) -> oauth2.jwt(withDefaults()))
+
                 .httpBasic(
-                        Customizer.withDefaults())
-                .headers(header -> {header.
-                    frameOptions().sameOrigin();})
+                        withDefaults())
+                .headers(headers -> headers.frameOptions(frameOptionsConfig-> frameOptionsConfig.disable()))
                 .build();
     }
 
