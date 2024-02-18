@@ -52,8 +52,9 @@ public class JwtSecurityConfig {
         // https://github.com/spring-projects/spring-security/issues/12310
         return httpSecurity
         		.csrf(AbstractHttpConfigurer::disable)
-                .authorizeHttpRequests(auth -> 
-                	auth.requestMatchers(AntPathRequestMatcher.antMatcher(("/authenticate"))).permitAll()
+                .authorizeHttpRequests(auth ->
+                        auth.requestMatchers(AntPathRequestMatcher.antMatcher(("/authenticate"))).permitAll()
+                            .requestMatchers(AntPathRequestMatcher.antMatcher(("/"))).permitAll()
 //                		.requestMatchers(AntPathRequestMatcher.antMatcher(PathRequest.toH2Console()).permitAll())
 //                		.requestMatchers(PathRequest.toH2Console()).permitAll() // h2-console is a servlet and NOT recommended for a production
                 		.requestMatchers(AntPathRequestMatcher.antMatcher(HttpMethod.OPTIONS,"/**")).permitAll()

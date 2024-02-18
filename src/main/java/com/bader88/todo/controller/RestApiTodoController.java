@@ -24,6 +24,10 @@ public class RestApiTodoController {
 //	private final ToDoService toDoService;
 	private final ToDoRepo toDoRepo;
 	
+	@GetMapping("/")
+	public String Welcome() {
+		return "every things fine ^_^";
+	}
 	@GetMapping("/basicauth")
 	public String basicAuthCheck() {
 		return "Success";
